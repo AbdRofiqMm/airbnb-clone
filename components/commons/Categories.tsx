@@ -4,7 +4,7 @@ import React from "react";
 
 export default function Categories() {
   return (
-    <div className="flex items-center space-x-8 whitespace-nowrap px-10 py-3 overflow-x-auto pb-4">
+    <div className="flex items-center space-x-8 whitespace-nowrap px-10 my-3 overflow-x-auto pb-4">
       {categories.map((item) => (
         <div className="flex items-center flex-col">
           <Image
