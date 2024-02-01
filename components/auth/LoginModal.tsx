@@ -26,7 +26,7 @@ export default function LoginModal() {
               <span>Login</span>
               <X
                 onClick={() => setOpen(false)}
-                className="cursor-pointer"
+                className="cursor-pointer hover:bg-brand rounded-full p-1"
               />
             </div>
           </AlertDialogTitle>
