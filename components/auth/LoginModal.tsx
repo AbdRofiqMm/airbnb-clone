@@ -34,6 +34,7 @@ export default function LoginModal() {
       email: payload.email,
       password: payload.password,
     });
+    setLoading(false);
     if (error) {
       toast.error(error.message, { theme: "colored" });
     } else if (data.user) {
@@ -64,8 +65,9 @@ export default function LoginModal() {
               />
             </div>
           </AlertDialogTitle>
-          <AlertDialogDescription>
+          <AlertDialogDescription asChild>
             <div>
+              <ToastContainer />
               <form onSubmit={handleSubmit(onSubmit)}>
                 <h1 className="text-lg font-bold">Welcome to Airbnb</h1>
                 <div className="mt-5">

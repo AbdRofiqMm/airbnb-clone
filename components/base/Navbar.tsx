@@ -3,8 +3,12 @@ import BrandLogo from "./BrandLogo";
 import { MenuIcon, Search } from "lucide-react";
 import NavMenu from "./NavMenu";
 import MobileNav from "./MobileNav";
+import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
+import { cookies } from "next/headers";
 
-export default function Navbar() {
+export default async function Navbar() {
+  const supabase = createServerComponentClient({ cookies });
+  const { data, error } = await supabase.auth.getSession();
   return (
     <div className="flex items-center justify-between px-10 border-b-[1px]">
       <div className="hidden md:block">
@@ -30,7 +34,7 @@ export default function Navbar() {
       <div className="hidden md:flex items-center space-x-4">
         <span>Add your home</span>
         <span>
-          <NavMenu />
+          <NavMenu session={data?.session?.user} />
         </span>
       </div>
     </div>

@@ -59,7 +59,7 @@ export default function SignupModal() {
           className="hover:bg-gray-200 p-2 cursor-pointer rounded-md"
           onClick={() => setOpen(true)}
         >
-          Sing up
+          Sign up
         </li>
       </AlertDialogTrigger>
       <AlertDialogContent>
