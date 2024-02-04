@@ -10,9 +10,9 @@ import { LoginType, loginSchema } from "@/validations/authSchema";
 import Image from "next/image";
 import { useForm } from "react-hook-form";
 import { createClientComponentClient } from "@supabase/auth-helpers-nextjs";
-import { ToastContainer, toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
+import { toast } from "react-toastify";
 import { useRouter } from "next/navigation";
+import SocialBtn from "./SocialBtn";
 
 export default function LoginModal() {
   const [open, setOpen] = useState<boolean>(false);
@@ -67,7 +67,6 @@ export default function LoginModal() {
           </AlertDialogTitle>
           <AlertDialogDescription asChild>
             <div>
-              <ToastContainer />
               <form onSubmit={handleSubmit(onSubmit)}>
                 <h1 className="text-lg font-bold">Welcome to Airbnb</h1>
                 <div className="mt-5">
@@ -99,33 +98,8 @@ export default function LoginModal() {
                   </Button>
                 </div>
                 <h1 className="text-center my-2">-- OR --</h1>
-                <Button
-                  variant={"outline"}
-                  className="w-full"
-                >
-                  <Image
-                    src="/images/google.png"
-                    alt="Google"
-                    className="mr-5"
-                    width={25}
-                    height={25}
-                  />
-                  Continue with Google
-                </Button>
-                <Button
-                  variant={"outline"}
-                  className="w-full mt-5"
-                >
-                  <Image
-                    src="/images/github.png"
-                    alt="Github"
-                    className="mr-5"
-                    width={25}
-                    height={25}
-                  />
-                  Continue with Github
-                </Button>
               </form>
+              <SocialBtn />
             </div>
           </AlertDialogDescription>
         </AlertDialogHeader>
